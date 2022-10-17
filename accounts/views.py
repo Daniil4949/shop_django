@@ -33,13 +33,13 @@ class Profile(View):
         the purchased books and the most rated books. """
     def get(self, request, *args, **kwargs):
         context = {}
-        rated_books = Rating.objects.filter(user=self.request.user).order_by('score')[:5]
         try:
+            rated_books = Rating.objects.filter(user=self.request.user).order_by('score')[:5]
             purchased_books = Payment.objects.filter(user=self.request.user)[:5]
             context['purchased_books'] = purchased_books
+            if rated_books[0].score > 0:
+                context['rated_books'] = rated_books[::-1]
         except:
             pass
-        if rated_books[0].score > 0:
-            context['rated_books'] = rated_books[::-1]
         return render(request, 'menu/profile.html', context)
 # Create your views here.

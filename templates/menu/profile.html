@@ -7,6 +7,7 @@
             <h2>
                 <center>Your profile</center>
             </h2>
+            {% if rated_books %}
             <center><h3>Your favourite books</h3></center>
             <ol class="list-group list-group-numbered">
                 {% for book in rated_books %}
@@ -19,6 +20,8 @@
                 </li>
                 {% endfor%}
             </ol>
+            {% endif %}
+            {% if purchased_books %}
             <center><h3>Your most purchased books</h3></center>
             <ol class="list-group list-group-numbered">
                 {% for book in purchased_books %}
@@ -30,7 +33,8 @@
                 </li>
                 {% endfor %}
             </ol>
-
+            {% endif %}
+            <center><h3 style="margin: 25px;">Dear {{request.user.username}}, You can rate or buy books on the <a href="{% url 'home' %}">main page</a> of the site</h3></center>
         </div>
     </div>
     {% endblock %}
