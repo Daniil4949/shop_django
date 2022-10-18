@@ -7,7 +7,6 @@ from users.models import *
 from django.views import View
 from cart.models import Payment
 from books.models import Rating
-from django.shortcuts import get_object_or_404
 
 
 class RegisterUser(CreateView):

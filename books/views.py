@@ -71,10 +71,6 @@ class AuthorInfo(DetailView):
     slug_url_kwarg = 'author_slug'
 
 
-def proposal(request):
-    return render(request, 'menu/feedback.html')
-
-
 class FeedBackForm(FormView):
     template_name = "menu/feedback.html"
     form_class = FeedbackForm
