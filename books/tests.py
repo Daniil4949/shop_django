@@ -22,6 +22,7 @@ class FeedbackTestCase(TestCase):
 
 
 class MainPageTestCase(TestCase):
+    """Testcase for the main page and for the right status code(200)"""
     def test_main_page(self):
         client = Client()
         response = client.get(reverse('home'))
